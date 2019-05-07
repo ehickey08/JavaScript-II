@@ -149,3 +149,15 @@ console.log(skinteRunners);
 // Problem 3
 //See how many shirts of each size need to be ordered and list them all in one array
 
+let shirtSizes = runners.map((el) => el.shirt_size)
+let shirtsBySize = {};
+
+shirtSizes.forEach(el => {
+    if(!shirtsBySize.hasOwnProperty(el)){
+        shirtsBySize[el] = 1;
+    } else {
+        shirtsBySize[el] ++;
+    }
+});
+
+console.log(shirtsBySize);
