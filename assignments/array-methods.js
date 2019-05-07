@@ -115,7 +115,37 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+//Randomize the starting line by id numbers
+let runnersCopy = runners.slice();
+let startingOrder = [];
+
+runnersCopy.sort(randomize);
+
+function randomize () {
+    return 0.5 - Math.random();
+}
+
+runnersCopy.forEach(el => {
+    startingOrder.push(el.first_name + " " + el.last_name);
+});
+console.log(startingOrder);
 
 // Problem 2
+//See what runners are entered for a specific company
+
+function companyTest (arr, company) {
+    newArr = arr.filter(companyCompeting);
+
+    function companyCompeting (obj) {
+        return obj.company_name === company;
+    }
+
+    return newArr;
+}
+
+skinteRunners = companyTest(runners, "Skinte");
+console.log(skinteRunners);
 
 // Problem 3
+//See how many shirts of each size need to be ordered and list them all in one array
+
