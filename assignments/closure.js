@@ -1,12 +1,16 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
-const day = 'Monday';
 
 function calendar () {
-    return `Today is ${day}`
+    let day = 'Monday';
+    return function today (){
+        day = 'Tuesday';
+        return `Today is ${day}`
+    }
 }
 
-console.log(calendar());
+const monday = calendar();
+console.log(monday());
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -16,8 +20,7 @@ const counter = () => {
   // Return a function that when invoked increments and returns a counter variable.
   let count = 0;
   return function () {
-    count ++;  
-    return count;
+    return count ++;  
   }
 };
 
@@ -37,13 +40,11 @@ const counterFactory = () => {
     let count = 0;
     return countingObject = {
       increment() {
-            count ++;
-            return count;
+            return count ++;
             },
 
       decrement() {
-            count --;
-            return count;
+            return count --;
             }
   }
 };
